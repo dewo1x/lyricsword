@@ -1,0 +1,29 @@
+@font-face{font-family:"WLSans";src:url("assets/fonts/sf-pro-text.ttf") format("truetype");font-weight:800;font-style:normal;font-display:block}
+
+.wl-stage{position:relative;overflow:hidden;container-type:size;background:#000;color:var(--text,#fff);font-family:var(--font);font-weight:var(--weight);user-select:none}
+.wl-bg{position:absolute;inset:0}
+
+.wl-wordbox{--origin:center center;position:absolute;inset:0;display:grid;align-items:center;justify-items:center;padding:0 6cqw;pointer-events:none}
+.wl-wordbox[data-align="left"]{--origin:left center;justify-items:start}
+.wl-wordbox[data-align="right"]{--origin:right center;justify-items:end}
+.wl-word{grid-area:1/1;transform-origin:var(--origin)}
+.wl-wa{transform-origin:var(--origin);will-change:transform,opacity,filter}
+.wl-wg{transform-origin:var(--origin);line-height:1;white-space:nowrap;letter-spacing:var(--tracking);will-change:transform;
+  text-shadow:0 0 .12em color-mix(in srgb,currentColor calc(var(--glow)*100%),transparent),0 0 .45em color-mix(in srgb,currentColor calc(var(--glow)*70%),transparent)}
+.wl-w{display:inline-block;padding:.08em .04em}
+
+.wl-stage[data-italic="1"] .wl-w,.wl-stage[data-italic="1"] .wl-lw{font-style:italic}
+.wl-stage[data-case="upper"] .wl-w,.wl-stage[data-case="upper"] .wl-lw{text-transform:uppercase}
+.wl-stage[data-case="lower"] .wl-w,.wl-stage[data-case="lower"] .wl-lw{text-transform:lowercase}
+
+.wl-line{position:absolute;left:0;right:0;bottom:11cqh;display:flex;flex-wrap:wrap;justify-content:center;gap:.1em .35em;padding:0 10cqw;line-height:1.25;text-align:center;letter-spacing:var(--tracking);pointer-events:none}
+.wl-lw{opacity:var(--line-op);transition:opacity .25s ease}
+.wl-lw.on{opacity:1}
+
+.wl-msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font-size:2.6cqw;opacity:.7;pointer-events:none;padding:0 8cqw}
+.wl-foot{position:absolute;left:3cqw;bottom:3cqh;font-size:max(10px,1.3cqw);opacity:.45;pointer-events:none;font-weight:500}
+.wl-hint{position:absolute;right:3cqw;bottom:3cqh;font-size:max(10px,1.2cqw);opacity:.28;pointer-events:none;font-weight:500}
+.wl-progress{position:absolute;left:0;right:0;bottom:0;height:max(2px,.45cqh);background:rgba(255,255,255,.12);pointer-events:none}
+.wl-progress i{display:block;height:100%;width:0;background:var(--text,#fff);opacity:.8}
+
+@media (prefers-reduced-motion:reduce){.wl-lw{transition:none}}
